@@ -1,83 +1,59 @@
-const fullscreenEmoji = document.getElementById("fullscreenEmoji");
-const centerEmoji = document.getElementById("centerEmoji");
-const clickMeText = document.getElementById("clickMeText");
-const sorryContainer = document.getElementById("sorryContainer");
-const sorryLeft = document.querySelector(".sorryText.left");
-const sorryRight = document.querySelector(".sorryText.right");
-const middleEmoji = document.getElementById("middleEmoji");
-const feelHeartText = document.getElementById("feelHeartText");
-const loveContainer = document.getElementById("loveContainer");
-const bottomArea = document.getElementById("bottomArea");
+const fsEmoji = document.getElementById("fullscreenEmoji");
+const center = document.getElementById("centerEmoji");
+const clickMe = document.getElementById("clickMe");
+const sorryBox = document.getElementById("sorryContainer");
+const sorryText = document.getElementById("sorryText");
+const middle = document.getElementById("middleEmoji");
+const feel = document.getElementById("feelHeart");
+const loveBox = document.getElementById("loveContainer");
+const again = document.getElementById("againEmoji");
 const clickAgain = document.getElementById("clickAgain");
-const finalText = document.getElementById("finalText");
-const loveShave = document.getElementById("loveShave");
-const music = document.getElementById("bgMusic");
+const final = document.getElementById("final");
+const music = document.getElementById("music");
 
-// Step 1: Fullscreen emoji appear
-fullscreenEmoji.style.display = "block";
-// ❌ auto-play removed
+setTimeout(()=>{
+  fsEmoji.classList.add("hidden");
+  center.classList.remove("hidden");
+},4000);
 
-// Step 2: After 4 sec, hide fullscreen emoji + show clickMe
-setTimeout(() => {
-  fullscreenEmoji.style.display = "none";
-  centerEmoji.classList.remove("hidden");
-}, 4000);
+clickMe.onclick = ()=>{
+  center.classList.add("hidden");
+  sorryBox.classList.remove("hidden");
 
-// Step 3: Click Me triggers Sorry 1–1,000,000 sequentially (smooth)
-clickMeText.addEventListener("click", () => {
-  centerEmoji.classList.add("hidden");
-  sorryContainer.classList.remove("hidden");
-
-  let count = 1;
-  const maxCount = 1000000;
-  const step = 500; // safe batch increment
-
-  function updateSorry() {
-    if (count > maxCount) {
-      sorryContainer.classList.add("hidden");
-      middleEmoji.classList.remove("hidden");
+  let i=1;
+  function run(){
+    if(i>10000000){
+      sorryBox.classList.add("hidden");
+      middle.classList.remove("hidden");
       return;
     }
-
-    sorryLeft.innerText = `Sorry 😭 ${count}`;
-    sorryRight.innerText = `Sorry 😭 ${count}`;
-    count += step;
-    requestAnimationFrame(updateSorry); // smooth & browser-friendly
+    sorryText.innerText=`Sorry 😭🥹 ${i}`;
+    i+=5000;
+    requestAnimationFrame(run);
   }
+  run();
+};
 
-  updateSorry();
-});
-
-// Step 4: Middle emoji click → I LOVE YOU 1–1,000,000 sequentially + music
-feelHeartText.addEventListener("click", () => {
-  middleEmoji.classList.add("hidden");
-  loveContainer.classList.remove("hidden");
-
-  music.currentTime = 0;
+feel.onclick = ()=>{
+  middle.classList.add("hidden");
+  loveBox.classList.remove("hidden");
   music.play();
 
-  let count = 1;
-  const maxCount = 1000000;
-  const step = 500; // safe batch increment
-
-  function updateLove() {
-    if (count > maxCount) {
-      loveContainer.classList.add("hidden");
-      bottomArea.classList.remove("hidden");
+  let i=1;
+  function love(){
+    if(i>10000000){
+      loveBox.classList.add("hidden");
+      again.classList.remove("hidden");
       return;
     }
-
-    loveContainer.innerText = `I LOVE YOU 💞💍😭 ${count}`;
-    count += step;
-    requestAnimationFrame(updateLove);
+    loveBox.innerText=`I LOVE YOU 😭💞💍💗 ${i}`;
+    i+=5000;
+    requestAnimationFrame(love);
   }
+  love();
+};
 
-  updateLove();
-});
-
-// Step 5: Bottom click → finalText + loveShave
-clickAgain.addEventListener("click", () => {
-  bottomArea.classList.add("hidden");
-  finalText.classList.remove("hidden");
-  loveShave.classList.remove("hidden");
-});
+clickAgain.onclick = ()=>{
+  again.classList.add("hidden");
+  final.classList.remove("hidden");
+};
