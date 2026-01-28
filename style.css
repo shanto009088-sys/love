@@ -1,113 +1,67 @@
 body{
   margin:0;
-  padding:0;
   background:black;
   color:white;
   font-family:sans-serif;
   overflow:hidden;
+  text-align:center;
 }
 
-/* Hide helper */
 .hidden{display:none;}
 
-/* Fullscreen emoji */
 #fullscreenEmoji{
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
   font-size:150px;
-  animation:emojiDrop 4s forwards;
-  text-align:center;
+  animation:drop 4s forwards;
 }
 
-/* Center emoji + Click Me */
-#centerEmoji{
+#centerEmoji,#middleEmoji,#againEmoji{
   position:absolute;
-  top:40%;
+  top:45%;
   left:50%;
   transform:translate(-50%,-50%);
-  text-align:center;
-  font-size:50px;
+  font-size:48px;
 }
-#clickMeText{
-  color:pink;
+
+#clickMe,#feelHeart,#clickAgain{
   margin-top:10px;
-  animation:heartbeat 1s infinite;
-  cursor:pointer;
-}
-
-/* Sorry text */
-#sorryContainer{
-  position:absolute;
-  top:10%;
-  width:100%;
-  text-align:center;
-}
-.sorryText.left{float:left;white-space:nowrap;}
-.sorryText.right{float:right;white-space:nowrap;}
-
-/* Middle emoji + Feel My Heart */
-#middleEmoji{
-  position:absolute;
-  top:55%;
-  left:50%;
-  transform:translateX(-50%);
-  text-align:center;
-  font-size:50px;
-}
-#feelHeartText{
   color:pink;
-  margin-top:10px;
-  animation:heartbeat 1s infinite;
   cursor:pointer;
+  animation:beat 1s infinite;
 }
 
-/* Love container */
-#loveContainer{
+#sorryContainer,#loveContainer{
   position:absolute;
-  top:65%;
-  left:50%;
-  transform:translateX(-50%);
-  text-align:center;
-}
-
-/* Bottom area */
-#bottomArea{
-  position:absolute;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  text-align:center;
-  font-size:30px;
-}
-#clickAgain{
-  color:pink;
-  margin-top:5px;
-  cursor:pointer;
-  animation:heartbeat 1s infinite;
-}
-
-/* Love-shave line */
-#loveShave{
-  width:100%;
-  height:3px;
-  background:linear-gradient(to right, pink, white, black);
-  position:absolute;
-  top:50%;
-  left:0;
-  animation:shaveMove 2s linear infinite;
-}
-
-/* Final text */
-#finalText{
-  position:absolute;
-  top:50%;
+  top:45%;
   left:50%;
   transform:translate(-50%,-50%);
   font-size:28px;
+}
+
+#final {
+  position:absolute;
+  top:50%;          /* vertical center */
+  left:50%;         /* horizontal center */
+  transform:translate(-50%,-50%);
   text-align:center;
-  animation:heartbeat 1s infinite;
+}
+
+.finalText{
+  font-size:32px;
+  color:white;
+  animation:heartbeat 1s infinite; /* lafabe animation */
+}
+
+/* Love-shave line under final text */
+.loveShave{
+  width:80%;
+  height:4px;
+  margin:20px auto 0 auto;
+  background:linear-gradient(90deg, pink, white, black);
+  animation:shaveMove 2s linear infinite;
 }
 
 /* Animations */
@@ -115,11 +69,17 @@ body{
   0%,100%{transform:scale(1);}
   50%{transform:scale(1.3);}
 }
-@keyframes emojiDrop{
-  0%{transform:translate(-50%, -150%);}
-  100%{transform:translate(-50%,-50%);}
-}
 @keyframes shaveMove{
   0%{transform:translateX(-100%);}
   100%{transform:translateX(100%);}
+}
+
+@keyframes drop{
+  from{transform:translate(-50%,-150%);}
+  to{transform:translate(-50%,-50%);}
+}
+
+@keyframes move{
+  from{transform:translateX(-100%);}
+  to{transform:translateX(100%);}
 }
