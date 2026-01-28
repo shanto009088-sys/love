@@ -1,53 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Love Project</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Love</title>
+
+<style>
+body{
+  margin:0;
+  background:black;
+  color:white;
+  text-align:center;
+  font-family:sans-serif;
+}
+.hidden{display:none}
+.big{font-size:70px}
+.mid{font-size:28px; cursor:pointer}
+</style>
 </head>
+
 <body>
 
-<!-- Step 1: Fullscreen emoji -->
-<div id="fullscreenEmoji">😭</div>
+<div id="fullscreenEmoji" class="big">😭</div>
 
-<!-- Step 2: Center emoji + Click Me -->
 <div id="centerEmoji" class="hidden">
-  <span>😭💍💞</span>
-  <div id="clickMeText">Click Me</div>
+  <p id="clickMeText" class="mid">Click Me</p>
 </div>
 
-<!-- Step 3: Sorry texts -->
 <div id="sorryContainer" class="hidden">
-  <div class="sorryText left"></div>
-  <div class="sorryText right"></div>
+  <p class="sorryText left"></p>
+  <p class="sorryText right"></p>
 </div>
 
-<!-- Step 4: Middle emoji + Click -->
 <div id="middleEmoji" class="hidden">
-  <span>😭💞💍</span>
-  <div id="feelHeartText">Feel My Heart</div>
+  <p id="feelHeartText" class="mid">💗 Feel My Heart</p>
 </div>
 
-<!-- Step 5: I LOVE YOU 1000 -->
 <div id="loveContainer" class="hidden"></div>
 
-<!-- Step 6: Bottom emoji + Click Again -->
 <div id="bottomArea" class="hidden">
-  <div id="bottomEmoji">⬇️📩</div>
-  <div id="clickAgain">Click Again</div>
+  <p id="clickAgain" class="mid">⬇️ Click Again</p>
 </div>
 
-<!-- Love-shave line -->
-<div id="loveShave" class="hidden"></div>
+<div id="finalText" class="hidden">
+  I LOVE YOU SO MUCH ❤️
+</div>
 
-<!-- Centered final text -->
-<div id="finalText" class="hidden">I LOVE YOU WIFUUUU 💗🕊️💍😭💍💞</div>
-
-<!-- Audio -->
-<audio id="bgMusic">
-  <source src="iwannabeyours.mp3" type="audio/mpeg">
-</audio>
+<audio id="bgMusic" src="./song.mp3"></audio>
 
 <script src="./script.js"></script>
+
 </body>
 </html>
